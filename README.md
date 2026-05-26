@@ -1,16 +1,29 @@
-# Type Crafter
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# type-crafter
 
-TypeCrafter is a CLI tool for generating types from a YAML types specification for any language.
-The tool is heavily inspired by [OpenAPI Generator](https://openapi-generator.tech/) and
-aims to provide similar functionality for generating types with a simple YAML specification & more flexibility.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/type-crafter)
 
-## Installation
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
+
+## Architecture
+
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
+
+## Install
+
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
 ```bash
-npm i -g type-crafter
+git clone https://github.com/Interested-Deving-1896/type-crafter.git
+cd type-crafter
 ```
 
 ## Usage
+
 
 ```bash
 type-crafter generate <language> <types-specification-file> <output-directory>
@@ -24,107 +37,50 @@ type-crafter generate typescript types.yaml ./types
 
 Example input specification file can be found [here](https://github.com/sinha-sahil/type-crafter/blob/release/examples/input.yaml#L1)
 
-## Input Specification
+## Configuration
 
-The input specification is a YAML file that contains the types specification.
-Refer the following sample specification for the structure:
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-```yaml
-info:
-  version: 0.0.0
-  title: Title of your specification
-types:
-  SampleType:
-    type: object
-    properties:
-      name:
-        type: string
-groupedTypes:
-  SampleGroupedType:
-    type: object
-    properties:
-      name:
-        type: string
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/type-crafter`](https://github.com/Interested-Deving-1896/type-crafter) and mirrored through:
+
+```
+Interested-Deving-1896/type-crafter  ──►  OpenOS-Project-OSP/type-crafter  ──►  OpenOS-Project-Ecosystem-OOC/type-crafter
 ```
 
-The input specification yaml file must be of following syntax:
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-- `info` - The information about the specification. Specifying the version and title of your spec. **This is required.**
-- `types` - These are types that will be generated in flat structure.
-- `groupedTypes` - These are types that will be generated and grouped in a folder.
+## Contributors
 
-**Note: Passing types or groupedTypes is up to your expected results. A valid spec file can contain either types or groupedTypes or both.**
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-The syntax for writing different types can be referred from the [OpenAPI Data Types Guide](https://swagger.io/docs/specification/data-models/data-types/).
+## Origins
 
-## Supported Languages
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-- [✔️] TypeScript
-- [✔️] TypeScript with Decoders (runtime validation)
-- More languages coming soon
+## Resources
 
-## MCP Server (AI Assistant Integration)
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
-Type Crafter includes an MCP (Model Context Protocol) server that helps AI assistants write correct YAML specifications.
+## License
 
-### Installation
-
-```bash
-npm install -g @type-crafter/mcp-server
-```
-
-### Configuration (Claude Desktop)
-
-Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "type-crafter": {
-      "command": "type-crafter-mcp"
-    }
-  }
-}
-```
-
-### Available Tools
-
-| Tool                | Description                         |
-| ------------------- | ----------------------------------- |
-| `get-writing-guide` | Learn YAML spec format (call first) |
-| `get-rules-section` | Deep-dive into specific topics      |
-| `validate-spec`     | Check specs for errors              |
-| `get-spec-info`     | View types in existing spec         |
-| `list-languages`    | Show supported languages            |
-
-### Key Features
-
-- **Session-based workflow** - Guides LLMs to read documentation first
-- **Educational errors** - Explains what's wrong and how to fix it
-- **Common mistake detection** - Catches `nullable: true`, `optional: true`, wrong paths
-
-See [mcp/README.md](./mcp/README.md) for full documentation.
-
-## Contributing & Extending
-
-### Adding support for a new language
-
-TypeCrafter uses Handlebars to template syntax for different languages.
-
-To add support for a new language, you need to create a new folder in `src/templates` directory.
-The folder name will be the name of the language.
-The folder must implement following files:
-
-- `index.ts` - The main file that will be exporting the [generator config](https://github.com/sinha-sahil/type-crafter/blob/release/src/types/index.ts#L5).
-- `object-syntax.hbs` - This Handlebars template file that will be used to generate the object syntax.
-- `type-file-syntax.hbs` - This Handlebars template file that will be used to generate the syntax for file which contains the generated types & its imports.
-- `exporter-module-syntax.hbs` - This Handlebars template file that will be used to generate the syntax for the module that exports the generated types.
-
-## Development
-
-To start developing type-crafter, you need to run following commands:
-
-```bash
-pnpm i
-pnpm run dev
-```
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
